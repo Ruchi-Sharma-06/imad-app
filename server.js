@@ -4,8 +4,8 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articleOne={
-    title:'   My Article One',
+var articles={
+    `article-one`:{ title:'   My Article One',
     heading:' Article One',
     date:'Sep 8,2017',
     content:`<p align="justify">
@@ -17,7 +17,36 @@ var articleOne={
     <pre>
         Welcome to my site
     </pre>`
-    
+    },
+    `article-two`:{ title:'   My Article Two',
+    heading:' Article One',
+    date:'Sep 8,2017',
+    content:`<p align="justify">
+        Hey this is the content for article one
+         Hey this is the content for article one
+          Hey this is the content for article one
+           Hey this is the content for article one
+    </p>
+    <pre>
+        Welcome to my site
+    </pre>`
+    },
+    `article-three`:{ title:'   My Article Three',
+    heading:' Article One',
+    date:'Sep 8,2017',
+    content:`<p align="justify">
+        Hey this is the content for article one
+         Hey this is the content for article one
+          Hey this is the content for article one
+           Hey this is the content for article one
+    </p>
+    <pre>
+        Welcome to my site
+    </pre>`
+    }
+};
+var articleOne={
+   
 };
 function createTemplate(data)
 {
@@ -59,8 +88,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function(req,res) {
-   res.send(createTemplate(articleOne));
+app.get('/articleName', function(req,res) {
+   res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two', function(req,res){
